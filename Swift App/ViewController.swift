@@ -11,24 +11,29 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var TheLabel: UILabel!
     
-    var tapcount = 0
+    
+    @IBOutlet weak var text1: UITextField!
+    @IBOutlet weak var text2: UITextField!
+    
     
     @IBAction func buttonTapped(_ sender: AnyObject) {
+        let addition = true
         
-        tapcount = tapcount + 1
-        
-        if tapcount >= 3 {
-            TheLabel.text = "Ouch Stop It!"
+        if addition {
+            
+            TheLabel.text = "Answer: \(Double(text1.text!)! + Double(text2.text!)!)"
+        } else {
+            TheLabel.text = "Answer: \(Double(text1.text!)! - Double(text2.text!)!)"
+        }
+            
+        }
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            // Do any additional setup after loading the view, typically from a nib.
+            self.view.backgroundColor = UIColor.green
         }
         
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.green
-    }
-
-
 }
 
